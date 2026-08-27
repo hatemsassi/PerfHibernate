@@ -140,7 +140,7 @@ PostgreSQL ne met jamais à jour une ligne en place : il **insère une nouvelle 
 - Préférer les `JOIN` explicites aux sous-requêtes corrélées.
 - Vérifier systématiquement les plans via `EXPLAIN (ANALYZE, BUFFERS)` : `Seq Scan` vs `Index Scan`, nombre de buffers lus, estimation vs réalité du nombre de lignes (`rows=X` planifié vs réel).
 
-### 4.4 VACUUM / ANALYZE
+### 4.4 VACUUM / ANALYZE [voir le fichier https://github.com/hatemsassi/PerfHibernate/blob/main/vacuum.md ]
 
 - `ANALYZE` obligatoire après tout chargement massif — sans stats à jour, le planner prend de mauvaises décisions (scan séquentiel au lieu d'index scan, mauvais ordre de jointure).
 - Autovacuum à surveiller/ajuster sur les tables à forte rotation (`autovacuum_vacuum_cost_limit`, seuils `autovacuum_vacuum_scale_factor`).
